@@ -31,11 +31,15 @@ Prerequisites
 ### Step 1. Update The System
 First of all, let us log in to our Ubuntu 22.04 VPS through SSH:
 
-```ssh master@IP_Address -p Port_number```
+```
+ssh master@IP_Address -p Port_number
+```
 
 Replace “master” with a user that has sudo privileges or root if necessary. Additionally, replace “IP_Address” and “Port_Number” with your server’s IP address and SSH port number. Next, let’s make sure that we’re on Ubuntu 22.04. You can verify it with this command:
 
-```$ lsb_release -a```
+```
+$ lsb_release -a
+```
 
 You should get an output like this:
 
@@ -49,39 +53,53 @@ Codename: jammy
 
 Then, execute this command below to make sure that all installed packages on the server are updated to their latest available versions:
 
-```$ sudo apt update```
+```
+$ sudo apt update
+```
 
 ### Step 2. Add System User
 
 We will install an Odoo 16 instance under a system user account. So, we need to create a new system account. This command below is used to create a user called “odoo16”.
 
-```$ sudo useradd -m -d /opt/odoo16 -U -r -s /bin/bash odoo16```
+```
+$ sudo useradd -m -d /opt/odoo16 -U -r -s /bin/bash odoo16
+```
 
 ### Step 3. Install Dependencies
 
 Since Odoo is built on Python, we need to install some dependencies to proceed with installing Odoo 16 on our Ubuntu 22.04 system. We can install them by running this command below.
 
-```$ sudo apt install build-essential wget git python3-pip python3-dev python3-venv python3-wheel libfreetype6-dev libxml2-dev libzip-dev libsasl2-dev python3-setuptools libjpeg-dev zlib1g-dev libpq-dev libxslt1-dev libldap2-dev libtiff5-dev libopenjp2-7-dev```
+```
+$ sudo apt install build-essential wget git python3-pip python3-dev python3-venv python3-wheel libfreetype6-dev libxml2-dev libzip-dev libsasl2-dev python3-setuptools libjpeg-dev zlib1g-dev libpq-dev libxslt1-dev libldap2-dev libtiff5-dev libopenjp2-7-dev
+```
 
 ### Step 4. Install PostgreSQL
 
 Odoo only supports PostgreSQL to store its data. Let’s execute the command below to install the PostgreSQL server on our Ubuntu 22.04 server.
 
-```$ sudo apt install postgresql```
+```
+$ sudo apt install postgresql
+```
 
 After the installation is finished, we can add a new postgresql user for our Odoo 16; run this command:
 
-```$ sudo su - postgres -c "createuser -s odoo16"````
+```
+$ sudo su - postgres -c "createuser -s odoo16"
+```
 
 ### Step 5. Install Wkhtmltopdf
 
 For printing-related purposes, Odoo 16 requires a wkhtmltopdf version higher than 0.12.2. Wkhtmltopdf is an open-source command line tool to render HTML data into PDF format using Qt webkit. To install wkhtmltopdf on your Ubuntu 22.04 server, follow the steps below.
 
-```$ sudo apt install wkhtmltopdf```
+```
+$ sudo apt install wkhtmltopdf
+```
 
 Once installed, you can check its version by running this command
 
-```$ wkhtmltopdf --version```
+```
+$ wkhtmltopdf --version
+```
 
 You will see an output like this:
 
@@ -91,19 +109,31 @@ wkhtmltopdf 0.12.6
 
 In Ubuntu 22.04, we can install Odoo from the default Ubuntu repository, but this will install Odoo version 14. In this article, we will install Odoo 16 under a python virtual environment. We created a system user earlier in this article; let’s switch to system user ‘odoo16’ and then install Odoo under that username.
 
-```$ sudo su - odoo16```
+```
+$ sudo su - odoo16
+```
 
 The command above should bring you to /opt/odoo16 and log you in as user ‘odoo16’. Now, download Odoo from Github.
 
-```$ git clone https://www.github.com/odoo/odoo --depth 1 --branch 16.0 odoo16```  OR ```$ git clone https://github.com/ghbouzrbay/Odoo/odoo16```
+```
+$ git clone https://www.github.com/odoo/odoo --depth 1 --branch 16.0 odoo16
+```  
+OR 
+```
+$ git clone https://github.com/ghbouzrbay/Odoo/odoo16
+```
 
 Execute the following command to create a new python virtual environment.
 
-```$ python3 -m venv odoo16-venv```
+```
+$ python3 -m venv odoo16-venv
+```
 
 The virtual environment is now installed; it is time to activate it by running this command.
 
-```$ source odoo16-venv/bin/activate````
+```
+$ source odoo16-venv/bin/activate
+```
 
 Once executed, your shell prompt would look like this:
 
@@ -148,7 +178,9 @@ Make sure to modify the value of the m0d1fyth15 key above and use a stronger pas
 
 In this step, we will create a systemd unit file. It is required to start/stop/restart Odoo.
 
-```$ sudo nano /etc/systemd/system/odoo16.service```
+```
+$ sudo nano /etc/systemd/system/odoo16.service
+```
 
 Paste the following content into the systemd unit file above.
 
@@ -180,4 +212,6 @@ $ sudo systemctl start odoo16
 
 Check if Odoo is starting by running this command:
 
-```$ sudo systemctl status odoo16```
+```
+$ sudo systemctl status odoo16
+```
