@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_model_table_form" model="ir.ui.view">
+            <field name="name">model.table.form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//page[@name='details']" position="inside">-->
+<!--                    <xpath expr="//group" position="inside">-->
+<!--                         <group>-->
+<!--                                    <field name="consumption_money"/>-->
+<!--                                     <field name="consumption_energy"/>-->
+<!--                                    <field name="legacy_energy"/>-->
+<!--                                    <field name="facture"/>-->
+<!--                                    <field name="project"/>-->
+<!--                                    <field name="site"/>-->
+<!--                                    <field name="installation"/>-->
+<!--                                    <field name="structure"/>-->
+<!--                         </group>-->
+<!--                    </xpath>-->
+<!--                </xpath>-->
+<!--            </field>-->
+        </record>
+    </data>
+</odoo>

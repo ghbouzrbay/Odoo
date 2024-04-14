@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crm_lead,crm.lead,model_crm_lead,base.group_user,1,1,1,1
+access_crm_hours,crm.hours,model_crm_hours,base.group_user,1,1,1,1
+access_sinoma_crm_my_wizard,sinoma_crm.my_wizard,model_sinoma_crm_my_wizard,base.group_user,1,1,1,1

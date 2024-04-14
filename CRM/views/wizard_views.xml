@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_my_wizard_form" model="ir.ui.view">
+    <field name="name">My Wizard Form</field>
+    <field name="model">sinoma_crm.my_wizard</field>
+        <field name="arch" type="xml">
+            <form string="My Wizard">
+<!--                <sheet>-->
+                    <group>
+                        <field name="name"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="selection_contry"/>
+                    </group>
+                <field name="crm_lead_id">
+                    <tree editable="bottom">
+
+                        <field name="selection_field"/>
+
+                        <field name="start_date"/>
+
+                        <field name="end_date"/>
+
+                        <field name="ratio"/>
+
+                        <field name="consumption"/>
+
+                        <field name="pprice" />
+                    </tree>
+                </field>
+
+                <footer>
+                    <button name="action_validate_and_save" string="Save" type="object" class="btn-primary"/>
+                </footer>
+<!--                </sheet>-->
+            </form>
+        </field>
+    </record>
+</odoo>
