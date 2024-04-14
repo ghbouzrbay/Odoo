@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="view_project_template_form" model="ir.ui.view">
+            <field name="name">project.template.form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="action_open_project_settings" type="object" class="oe_stat_button" icon="fa-briefcase">
+                        <div class="o_stat_info">
+                            <field name="project_count"/>
+                            <span class="o_stat_text"> Project</span>
+                        </div>
+                    </button>
+                    <button name="action_open_order_template_settings" type="object" class="oe_stat_button" icon="fa-tasks">
+                        <div class="o_stat_info">
+                            <span class="o_stat_text"> Sale Order Template</span>
+<!--                            <field name="template_count"/>-->
+                        </div>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+</odoo>

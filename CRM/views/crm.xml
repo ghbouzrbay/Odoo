@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sinoma_crm_lead_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.view.form.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='details']" position="inside">
+                    <group>
+                        <field name="consumption_money"/>
+                        <field name="consumption_energy"/>
+                        <field name="legacy_energy"/>
+                        <field name="facture"/>
+                        <field name="project"/>
+                        <field name="site"/>
+                        <field name="installation"/>
+                        <field name="structure"/>
+                    </group>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Profil Consommation">
+                        <notebook>
+
+                            <page string="Generation Profil">
+
+                                <group>
+
+                                    <button name="open_my_wizard" string="Generation Profil" type="object" class="oe_highlight"/>
+
+                                </group>
+
+                                <field name="sinoma_crm_my_wizard_id" nolable="1">
+
+                                    <tree editable="bottom">
+
+                                        <field name="selection_field"/>
+
+                                        <field name="start_date"/>
+
+                                        <field name="end_date"/>
+
+                                        <field name="ratio"/>
+
+                                        <field name="consumption"/>
+
+                                        <field name="pprice" />
+
+                                    </tree>
+
+                                </field>
+
+                            </page>
+
+                            <page string="WorkTime">
+                                <group>
+                                    <group>
+                                        <field name="holidays"/>
+                                    </group>
+                                    <group>
+                                        <field name="an_muslman"/>
+                                    </group>
+                                    <group>
+                                        <field name="aid_adha"/>
+                                        <field name="aid_fitr"/>
+                                    </group>
+                                    <group>
+                                        <field name="temps_travail"/>
+                                    </group>
+                                </group>
+                                <sheet>
+                                    <field name="hours">
+
+                                        <tree editable="bottom">
+                                            <field name="toggle"/>
+
+                                            <field name="hours_of_day" />
+
+                                            <field name="monday"/>
+
+                                            <field name="tuesday"/>
+
+                                            <field name="wednesday"/>
+
+                                            <field name="thursday"/>
+
+                                            <field name="friday"/>
+
+                                            <field name="saturday"/>
+
+                                            <field name="sunday"/>
+
+                                        </tree>
+
+                                    </field>
+                                </sheet>
+                                <group>
+                                    <group>
+                                        <field name="abonnement"/>
+                                        <field name="puissance"/>
+                                        <field name="transformateur"/>
+                                    </group>
+                                    <group>
+                                        <field name="infrastructure"/>
+                                        <field name="reglementation"/>
+                                        <field name="eloignement"/>
+                                    </group>
+                                    <group>
+                                        <field name="disjoncteur"/>
+                                    </group>
+                                </group>
+
+                                <sheet>
+                                    <group>
+                                        <group>
+                                            <field name="factures"/>
+                                        </group>
+                                        <group>
+                                            <field name="mois_jv"/>
+                                            <field name="mois_fr"/>
+                                            <field name="mois_mr"/>
+                                            <field name="mois_av"/>
+                                            <field name="mois_my"/>
+                                            <field name="mois_ju"/>
+                                            <field name="mois_jui"/>
+                                            <field name="mois_au"/>
+                                            <field name="mois_se"/>
+                                            <field name="mois_oc"/>
+                                            <field name="mois_nv"/>
+                                            <field name="mois_de"/>
+                                        </group>
+                                    </group>
+                                </sheet>
+                                <sheet>
+                                    <group>
+                                        <group>
+                                            <field name="height_installation"/>
+                                        </group>
+                                        <group>
+                                            <field name="pente_toiture"/>
+                                        </group>
+                                    </group>
+                                    <group>
+                                        <group>
+                                            <field name="condition_conception"/>
+                                        </group>
+                                        <group>
+                                            <field name="condition_other"/>
+                                            <field name="speed" attrs="{'invisible':[('condition_other', '=', False)]}"/>
+                                            <field name="snow_change" attrs="{'invisible':[('condition_other', '=', False)]}"/>
+                                        </group>
+                                    </group>
+                                </sheet>
+<!--                                <group>-->
+<!--                                    <group>-->
+<!--                                        <field name="zone_urbaine"/>-->
+<!--                                        <field name="zone_industrie"/>-->
+<!--                                    </group>-->
+<!--                                    <group>-->
+<!--                                        <field name="zone_rurale"/>-->
+<!--                                        <field name="zone_cotiere"/>-->
+<!--                                    </group>-->
+<!--                                </group>-->
+                                    <sheet>
+                                        <group>
+                                            <group>
+                                                <field name="zone_urbaine"/>
+                                                <field name="zone_industrie"/>
+                                            </group>
+                                            <group>
+                                                <field name="zone_rurale"/>
+                                                <field name="zone_cotiere"/>
+                                            </group>
+                                        </group>
+                                        <group>
+                                        <group>
+                                            <tr>
+                                               <td><a href="/"><img src="/crm_addional/static/image1.png" style="vertical-align:baseline;max-width:150px;" /></a></td>
+                                                <field name="disposition_1"/>
+                                            </tr>
+                                            <tr>
+                                               <td><a href="/"><img src="/crm_addional/static/image3.png" style="vertical-align:baseline;max-width:150px;" /></a></td>
+                                                <field name="disposition_2"/>
+                                            </tr>
+
+                                        </group>
+                                        <group>
+                                            <tr>
+                                               <td><a href="/"><img src="/crm_addional/static/image8.png" style="vertical-align:baseline;max-width:150px;" /></a></td>
+                                            <field name="disposition_3"/>
+                                            </tr>
+                                            <tr>
+                                               <td><a href="/"><img src="/crm_addional/static/image6.png" style="vertical-align:baseline;max-width:150px;" /></a></td>
+                                                <field name="disposition_6"/>
+                                            </tr>
+                                        </group>
+                                        </group>
+                                        <group>
+                                            <field name="selection_angle"/>
+                                        </group>
+
+                                    </sheet>
+<!--                                    <group>-->
+<!--                                            <field name="structure_15"/>-->
+<!--                                            <field name="structure_30"/>-->
+<!--                                            <field name="structure_other"/>-->
+<!--                                    </group>-->
+                            </page>
+                        </notebook>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
